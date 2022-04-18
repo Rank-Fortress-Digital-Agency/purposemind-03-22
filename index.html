@@ -1,341 +1,642 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #000;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #000;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #000;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #000;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #382;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #382;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      THE BENEFITS OF USING GOOGLE MY BUSINESS FOR BUSINESSES OF ALL SIZES |
+      Purpose Mind
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item"><a href="http://purposemind.com/">Main</a></li>
+        <li class="nav-item">
+          <a href="https://g.page/purposemind?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+        <li class="nav-item">
+          <a
+            href="https://sites.google.com/view/purpose-mind-marketing/google-my-business-hesperia-ca"
+            >Purpose Mind</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section
+          style="
+            background-image: url(https://purposemind.com/wp-content/uploads/2021/10/Contact-Us-Banner-Background-Image-1024x209.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+          class="head"
+        >
+          <h1>
+            THE BENEFITS OF USING GOOGLE MY BUSINESS FOR BUSINESSES OF ALL SIZES
+          </h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
+        <section>
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/C9eXneg5A3g"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <a
+            class="button-link"
+            href="https://purposemind.com/the-benefits-of-using-google-my-business-for-businesses-of-all-sizes/"
+            >Read Post</a
+          >
+        </section>
 
-  .two-col div {
-    width: 100%;
-  }
+        <section>
+          <p>
+            The benefits of using
+            <a href="https://purposemind.com/google-my-business/"
+              >Google My Business</a
+            >
+            for businesses of all sizes cannot be overstated. This is because
+            it’s a platform that has so much to offer: the ability to connect
+            with customers, control your business’s online presence, share
+            photos and videos and more. Whether you’re running a small retail
+            store or managing an international chain, there are countless
+            reasons why every company should invest in this brilliant system.
+            Here are some examples of what Google My Business can do for you.
+          </p>
+          <p>
+            – You can view analytics reports on how many people visit your
+            website each month and see where they come from (i.e., which
+            keywords they use to find you). These insights allow you to make
+            changes to reach the most potential customers with your ads;
+          </p>
+          <p>
+            – Use the Insights tab to see when people are searching for your
+            business the most, and adjust your hours or staffing accordingly.
+            You can also use this data to inform marketing decisions, such as
+            running a sale during your slowest times;
+          </p>
+          <p>
+            – Customers can contact you directly from your listing, whether it’s
+            to make a reservation, ask a question or give feedback. This way,
+            you can resolve issues quickly and efficiently;
+          </p>
+          <p>
+            – Google My Business allows you to post photos and videos of your
+            products, services, or store. This is an excellent way to show
+            potential customers what you have to offer, and it helps your
+            business stand out from the competition.
+          </p>
+          <p>
+            These are just some of the many advantages that come with using
+            Google My Business.
+          </p>
+          <p>
+            Google my Business is Google’s tool that helps you manage your local
+            Google listing, Google+ page, and Google business profile. Google my
+            Business allows people to share their opinion of your company as
+            well as the experience they had while visiting or working with you.
+            This post will show you how to use Google my Business to control all
+            aspects of your Google business listing and Google+ page.
+          </p>
+          <p>
+            Google My Business is Google’s free online business account that
+            helps you manage your Google presence. Google my Business is not
+            just for Google users but can help anyone with a professional
+            website or blog. Google my Business will take care of the technical
+            stuff to make sure Google knows where to send traffic and increase
+            their knowledge about your company.
+          </p>
+        </section>
 
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>THE BENEFITS OF USING GOOGLE MY BUSINESS FOR BUSINESSES OF ALL SIZES | Purpose Mind</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="http://purposemind.com/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/purposemind?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      <li class="nav-item"><a
-          href="https://sites.google.com/view/purpose-mind-marketing/google-my-business-hesperia-ca">Purpose Mind</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section style="background-image: url(https://purposemind.com/wp-content/uploads/2021/10/Contact-Us-Banner-Background-Image-1024x209.jpg); background-size: cover; background-attachment:fixed; min-height: 250px; display:flex; flex-direction: column; justify-content: center" class="head">
-        <h1>THE BENEFITS OF USING GOOGLE MY BUSINESS FOR BUSINESSES OF ALL SIZES</h1>
-      </section>
-
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/C9eXneg5A3g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <a class="button-link"
-            href="https://purposemind.com/the-benefits-of-using-google-my-business-for-businesses-of-all-sizes/">Read Post</a>
-      </section>
-
-      <section>
-        <p>The benefits of using <a href="https://purposemind.com/google-my-business/">Google My Business</a> for businesses of all sizes cannot be overstated.  This is because it’s a platform that has so much to offer: the ability to connect with customers, control your business’s online presence, share photos and videos and more. Whether you’re running a small retail store or managing an international chain, there are countless reasons why every company should invest in this brilliant system. Here are some examples of what Google My Business can do for you.</p>
-        <p>– You can view analytics reports on how many people visit your website each month and see where they come from (i.e., which keywords they use to find you). These insights allow you to make changes to reach the most potential customers with your ads;</p>
-        <p>– Use the Insights tab to see when people are searching for your business the most, and adjust your hours or staffing accordingly. You can also use this data to inform marketing decisions, such as running a sale during your slowest times;</p>
-        <p>– Customers can contact you directly from your listing, whether it’s to make a reservation, ask a question or give feedback. This way, you can resolve issues quickly and efficiently;</p>
-        <p>– Google My Business allows you to post photos and videos of your products, services, or store. This is an excellent way to show potential customers what you have to offer, and it helps your business stand out from the competition.</p>
-        <p>These are just some of the many advantages that come with using Google My Business.</p>
-        <p>Google my Business is Google’s tool that helps you manage your local Google listing, Google+ page, and Google business profile. Google my Business allows people to share their opinion of your company as well as the experience they had while visiting or working with you. This post will show you how to use Google my Business to control all aspects of your Google business listing and Google+ page.</p>
-        <p>Google My Business is Google’s free online business account that helps you manage your Google presence. Google my Business is not just for Google users but can help anyone with a professional website or blog. Google my Business will take care of the technical stuff to make sure Google knows where to send traffic and increase their knowledge about your company.</p>
-      </section>
-
-      <section>
-        <h2 style="text-align:center">GOOGLE MY BUSINESS IS A SERVICE THAT HELPS YOU MANAGE YOUR ONLINE PRESENCE</h2>
-        <div class="two-col">
-          <div>            
-            <p>Google My Business is a service that helps business owners manage their online presence. You can also use Google My Business to track how your website is performing in search results, get insights into how people are finding your business, and see how well your ads are doing. Plus, you can use Google My Business to connect with potential customers who are looking for businesses like yours. By claiming your listing, you’ll be able to control what information appears about your business, respond to customer reviews, and post updates and special offers. You can also use Google My Business to track your performance in search results and see how people are finding your business.</p>
+        <section>
+          <h2 style="text-align: center">
+            GOOGLE MY BUSINESS IS A SERVICE THAT HELPS YOU MANAGE YOUR ONLINE
+            PRESENCE
+          </h2>
+          <div class="two-col">
+            <div>
+              <p>
+                Google My Business is a service that helps business owners
+                manage their online presence. You can also use Google My
+                Business to track how your website is performing in search
+                results, get insights into how people are finding your business,
+                and see how well your ads are doing. Plus, you can use Google My
+                Business to connect with potential customers who are looking for
+                businesses like yours. By claiming your listing, you’ll be able
+                to control what information appears about your business, respond
+                to customer reviews, and post updates and special offers. You
+                can also use Google My Business to track your performance in
+                search results and see how people are finding your business.
+              </p>
+            </div>
+            <div>
+              <img
+                src="https://lh3.googleusercontent.com/geougc/AF1QipMaudZRi_gKv2YWMz4b2pmz-dphSHmaJiFzzhNr=h400-no"
+                alt="Google My Business Hesperia, CA"
+              />
+            </div>
           </div>
+          <a class="button-link" href="https://purposemind.com/">Visit Us</a>
+        </section>
+
+        <section>
+          <h2>
+            WITH GOOGLE MY BUSINESS, YOU CAN CREATE AND SHARE CONTENT WITH THE
+            WORLD, INCLUDING PICTURES OF YOUR BUSINESS’S INTERIOR AND EXTERIOR
+          </h2>
+          <p>
+            Google My Business allows business owners to create and share
+            <a href="https://purposemind.com/content-optimization/">content</a>
+            with the world, including pictures of their businesses’ interior and
+            exterior. This can be a great way to show customers what your
+            business is like and to attract new customers. In addition, you can
+            use Google My Business to keep track of customer reviews and to
+            respond directly to reviews. Finally, Google My Business provides
+            customers with the ability to contact you directly from your
+            business listing.
+          </p>
+        </section>
+
+        <section>
           <div>
-            <img src="https://lh3.googleusercontent.com/geougc/AF1QipMaudZRi_gKv2YWMz4b2pmz-dphSHmaJiFzzhNr=h400-no" alt="Google My Business Hesperia, CA">
+            <img
+              src="https://purposemind.com/wp-content/uploads/2021/10/Purpose-Mind-Marketing-Content-Marketing-1024x576.jpg"
+              alt="Google My Business Hesperia, CA"
+            />
           </div>
-        </div>
-        <a class="button-link"
-            href="https://purposemind.com/">Visit Us</a>
-      </section>
+          <br />
+          <h2 style="text-align: center">
+            YOU CAN ALSO RESPOND TO CUSTOMER REVIEWS ON THEIR WEBSITE OR APP
+          </h2>
+          <hr />
+          <br />
+          <p>
+            Google My Business helps you create a listing that appears in search
+            results on Google Maps, in ads, and across the web. You can also
+            respond to customer reviews on their website or app. When someone
+            searches for your business name or geographic location, they will
+            see your listing alongside other local businesses—even if you rank
+            below them in Search Results because we give more prominence to
+            listings with verified data from owners who have claimed ownership
+            of these locations. And when people are looking at what’s near them,
+            they’ll be able to find your business no matter which device they
+            use: desktop browser, mobile browser (including Android and iPhone),
+            or the Google Maps app.
+          </p>
+          <p>
+            One of the main benefits of using Google My Business is that it
+            helps improve your chances of ranking higher in search results.
+            This, in turn, can help you attract more customers and grow your
+            business. Additionally, Google My Business provides valuable
+            insights into how people are finding and interacting with your
+            business. These insights can help you make informed decisions about
+            how to improve your marketing and operations.
+          </p>
+        </section>
 
-      <section>
-        <h2>WITH GOOGLE MY BUSINESS, YOU CAN CREATE AND SHARE CONTENT WITH THE WORLD, INCLUDING PICTURES OF YOUR BUSINESS’S INTERIOR AND EXTERIOR</h2>
-        <p>Google My Business allows business owners to create and share <a href="https://purposemind.com/content-optimization/">content</a> with the world, including pictures of their businesses’ interior and exterior. This can be a great way to show customers what your business is like and to attract new customers. In addition, you can use Google My Business to keep track of customer reviews and to respond directly to reviews. Finally, Google My Business provides customers with the ability to contact you directly from your business listing.</p>
-      </section>
+        <section>
+          <h2 style="text-align: center">
+            WITH GOOGLE MY BUSINESS, YOU’LL BE ABLE TO TRACK HOW MANY PEOPLE ARE
+            VISITING YOUR SITE FROM SOCIAL MEDIA POSTS OR SEARCH ENGINE RESULTS
+            PAGES
+          </h2>
+          <div class="two-col">
+            <div>
+              <img
+                style="height: 340px"
+                src="https://lh3.googleusercontent.com/geougc/AF1QipP_mAfmxxr5qc1s6qLJ0i4C4LTYsJCTZXPPKZUu=h400-no"
+                alt="Google My Business Hesperia, CA"
+              />
+            </div>
+            <div>
+              <p>
+                As a business owner, you know that it’s important to track how
+                many people are visiting your site. After all, the more people
+                who visit your site, the more likely you are to make a sale. And
+                with Google My Business, you’ll be able to track how many people
+                are visiting your site from
+                <a href="https://purposemind.com/social-media-management/"
+                  >social media</a
+                >
+                posts or
+                <a href="https://purposemind.com/search-engine-optimization/"
+                  >search engine</a
+                >
+                results pages.
+              </p>
+              <p>
+                That means that you’ll be able to see which social media
+                platforms are sending the most traffic your way, and you’ll also
+                be able to see which keywords are bringing people to your site.
+                With this information, you can focus your efforts on the
+                platforms and keywords that are most effective for driving
+                traffic to your site.
+              </p>
+            </div>
+          </div>
+        </section>
 
-      <section>
-        
-        <div>
-          <img src="https://purposemind.com/wp-content/uploads/2021/10/Purpose-Mind-Marketing-Content-Marketing-1024x576.jpg" alt="Google My Business Hesperia, CA">
-        </div>
-        <br>
-        <h2 style="text-align:center">YOU CAN ALSO RESPOND TO CUSTOMER REVIEWS ON THEIR WEBSITE OR APP</h2>
-        <hr>
-        <br>
-        <p>Google My Business helps you create a listing that appears in search results on Google Maps, in ads, and across the web. You can also respond to customer reviews on their website or app. When someone searches for your business name or geographic location, they will see your listing alongside other local businesses—even if you rank below them in Search Results because we give more prominence to listings with verified data from owners who have claimed ownership of these locations. And when people are looking at what’s near them, they’ll be able to find your business no matter which device they use: desktop browser, mobile browser (including Android and iPhone), or the Google Maps app.</p>
-        <p>One of the main benefits of using Google My Business is that it helps improve your chances of ranking higher in search results. This, in turn, can help you attract more customers and grow your business. Additionally, Google My Business provides valuable insights into how people are finding and interacting with your business. These insights can help you make informed decisions about how to improve your marketing and operations.</p>
+        <section>
+          <h2>
+            GOOGLE MY BUSINESS ALSO OFFERS VALUABLE INSIGHTS ABOUT YOUR
+            CUSTOMERS, SUCH AS THEIR AGE, GENDER, AND LOCATION
+          </h2>
+          <p>
+            Google My Business is an app that allows you to manage and update
+            your Google Local Page. To make sure that customers can find you,
+            it’s important to have a strong online presence. This includes
+            having reviews on Yelp, Facebook, or other sites – as well as
+            optimizing your website for organic search engine rankings. But
+            there are also many benefits of using the Google My Business app in
+            addition to these platforms: such as insights about your customer
+            base. The data from this app will allow you to better understand who
+            your customers are by age group, gender, and location (among other
+            things). You can then use this knowledge when planning marketing
+            campaigns or tweaking product lines to reach more people with
+            similar needs.
+          </p>
+        </section>
 
-      </section>
-
-      <section>
-        <h2 style="text-align:center">WITH GOOGLE MY BUSINESS, YOU’LL BE ABLE TO TRACK HOW MANY PEOPLE ARE VISITING YOUR SITE FROM SOCIAL MEDIA POSTS OR SEARCH ENGINE RESULTS PAGES</h2>
-        <div class="two-col">
+        <section>
           <div>
-            <img style="height: 340px" src="https://lh3.googleusercontent.com/geougc/AF1QipP_mAfmxxr5qc1s6qLJ0i4C4LTYsJCTZXPPKZUu=h400-no" alt="Google My Business Hesperia, CA">
+            <img
+              src="https://purposemind.com/wp-content/uploads/2021/10/Purposemind-Marketing-Search-Engine-Optimization-8-1024x576.jpg"
+              alt="Google My Business Hesperia, CA"
+            />
           </div>
-          <div>
-            <p>As a business owner, you know that it’s important to track how many people are visiting your site. After all, the more people who visit your site, the more likely you are to make a sale. And with Google My Business, you’ll be able to track how many people are visiting your site from <a href="https://purposemind.com/social-media-management/">social media</a> posts or <a href="https://purposemind.com/search-engine-optimization/">search engine</a> results pages.</p>
-            <p>That means that you’ll be able to see which social media platforms are sending the most traffic your way, and you’ll also be able to see which keywords are bringing people to your site. With this information, you can focus your efforts on the platforms and keywords that are most effective for driving traffic to your site.</p>
-          </div>
-        </div>
+          <br />
+          <h2 style="text-align: center">
+            OVERALL, USING GOOGLE MY BUSINESS CAN HELP BUSINESSES OF ALL SIZES
+            TO MANAGE THEIR ONLINE PRESENCE EFFECTIVELY AND EFFICIENTLY.
+          </h2>
+          <hr />
+          <br />
+          <p>
+            Google My Business also allows businesses to manage their online
+            reviews. Reviews are an important part of any business’s online
+            presence, as they help potential customers learn about the quality
+            of the business’s products or services. By responding to reviews,
+            businesses can show their customers that they care about their
+            satisfaction and are willing to work hard to resolve any issues that
+            may arise.
+          </p>
+          <p>
+            Overall, using Google My Business can help businesses of all sizes
+            to manage their online presence effectively and efficiently. Google
+            My Business is an easy-to-use online tool that allows businesses to
+            create a business listing on Google. The listing includes the
+            business name, address, phone number, website, and hours of
+            operation. In addition, businesses can add photos and videos, as
+            well as posts to their listing. Posts can be used to announce
+            promotions, new products or services, or events.
+          </p>
+          <p>
+            Purpose Mind Marketing has used Google My Business to build a strong
+            online presence in Hesperia. The company has verified its business
+            information, posted updates and photos, responded to reviews, and
+            used the insights from its listing to improve its business. Purpose
+            Mind Marketing is an excellent example of how businesses can use
+            Google My Business to succeed.
+          </p>
+          <p>
+            If you’re looking to grow your business, consider using Google My
+            Business. It’s a powerful tool that can help you reach your target
+            market and build a strong online presence. Purpose Mind Marketing is
+            proof that Google My Business can be used to great effect. Contact
+            Purpose Mind Marketing today to learn more about how they can help
+            you grow your business. Visit their website or give them a call
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=11833474056738448303"
+            >Find Us Here!</a
+          >
+        </section>
 
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3290.6245687362734!2d-117.35518298477483!3d34.436290280503165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c3674ffc3591b5%3A0xa438f1f54ab223af!2sPurpose%20Mind%20Marketing%20-%20Hesperia!5e0!3m2!1sen!2sph!4v1649819430213!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Google%20My%20Business%20Hesperia,%20CA</iframe
+          >
+        </section>
 
-      <section>
-        <h2>GOOGLE MY BUSINESS ALSO OFFERS VALUABLE INSIGHTS ABOUT YOUR CUSTOMERS, SUCH AS THEIR AGE, GENDER, AND LOCATION</h2>
-        <p>Google My Business is an app that allows you to manage and update your Google Local Page.  To make sure that customers can find you, it’s important to have a strong online presence. This includes having reviews on Yelp, Facebook, or other sites – as well as optimizing your website for organic search engine rankings. But there are also many benefits of using the Google My Business app in addition to these platforms: such as insights about your customer base.  The data from this app will allow you to better understand who your customers are by age group, gender, and location (among other things). You can then use this knowledge when planning marketing campaigns or tweaking product lines to reach more people with similar needs.</p>
-      </section>
+        <section>
+          <iframe
+            src="https://www.tripadvisor.com.ph/Attractions-g32491-Activities-Hesperia_California.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <div>
-          <img src="https://purposemind.com/wp-content/uploads/2021/10/Purposemind-Marketing-Search-Engine-Optimization-8-1024x576.jpg" alt="Google My Business Hesperia, CA">
-        </div>
-        <br>
-        <h2 style="text-align:center">OVERALL, USING GOOGLE MY BUSINESS CAN HELP BUSINESSES OF ALL SIZES TO MANAGE THEIR ONLINE PRESENCE EFFECTIVELY AND EFFICIENTLY.</h2>
-        <hr>
-        <br>
-        <p>Google My Business also allows businesses to manage their online reviews. Reviews are an important part of any business’s online presence, as they help potential customers learn about the quality of the business’s products or services. By responding to reviews, businesses can show their customers that they care about their satisfaction and are willing to work hard to resolve any issues that may arise.</p>
-        <p>Overall, using Google My Business can help businesses of all sizes to manage their online presence effectively and efficiently. Google My Business is an easy-to-use online tool that allows businesses to create a business listing on Google. The listing includes the business name, address, phone number, website, and hours of operation. In addition, businesses can add photos and videos, as well as posts to their listing. Posts can be used to announce promotions, new products or services, or events.</p>
-        <p>Purpose Mind Marketing has used Google My Business to build a strong online presence in Hesperia. The company has verified its business information, posted updates and photos, responded to reviews, and used the insights from its listing to improve its business. Purpose Mind Marketing is an excellent example of how businesses can use Google My Business to succeed.</p>
-        <p>If you’re looking to grow your business, consider using Google My Business. It’s a powerful tool that can help you reach your target market and build a strong online presence. Purpose Mind Marketing is proof that Google My Business can be used to great effect. Contact Purpose Mind Marketing today to learn more about how they can help you grow your business. Visit their website or give them a call</p>
-        <a class="button-link"
-              href="https://google.com/maps/?cid=11833474056738448303">Find Us Here!</a>
-      </section>
+        <section>
+          <iframe
+            src="https://abc7.com/place/hesperia/"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3290.6245687362734!2d-117.35518298477483!3d34.436290280503165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c3674ffc3591b5%3A0xa438f1f54ab223af!2sPurpose%20Mind%20Marketing%20-%20Hesperia!5e0!3m2!1sen!2sph!4v1649819430213!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Google%20My%20Business%20Hesperia,%20CA</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://purposemind.com/"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.tripadvisor.com.ph/Attractions-g32491-Activities-Hesperia_California.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://abc7.com/place/hesperia/" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://purposemind.com/" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/purposemind-03-22/"
+            >https://rank-fortress-digital-agency.github.io/purposemind-03-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://purposemind-03-22.s3-website.ap-northeast-2.amazonaws.com/"
+            >http://purposemind-03-22.s3-website.ap-northeast-2.amazonaws.com/</a
+          ><br />
+          <a target="_bLank" href="https://meek-beijinho-03a89f.netlify.app/"
+            >https://meek-beijinho-03a89f.netlify.app/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://sites.google.com/view/purpose-mind-marketing/google-my-business-hesperia-ca"
+            >https://sites.google.com/view/purpose-mind-marketing/google-my-business-hesperia-ca</a
+          >
+        </section>
+      </div>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://www.facebook.com/Purposemind">Facebook</a></li>
+            <li>
+              <a href="https://google.com/maps/?cid=11833474056738448303"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCr0tgbHKx1LTbOU-8r7Hvpg"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
-      
-     
-
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="http://purposemind.com/">Main</a></li>
+            <li><a href="https://g.page/purposemind?share">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/Purposemind">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=11833474056738448303">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCr0tgbHKx1LTbOU-8r7Hvpg">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="http://purposemind.com/">Main</a></li>
-          <li><a href="https://g.page/purposemind?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
